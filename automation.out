@@ -1,0 +1,32 @@
+2021-09-19 20:09:351 INFO  LoginPageStepDefinition:28 - User Successfully launch the browser & navigated to application!------------
+2021-09-19 20:09:545 INFO  LoginPageStepDefinition:39 - -------------Login Success and landed in Dashboard page!------------
+2021-09-19 20:09:976 INFO  LoginPageStepDefinition:28 - User Successfully launch the browser & navigated to application!------------
+2021-09-19 20:09:15 INFO  LoginPageStepDefinition:47 - ----------Login Unsuccessful and try again with correct credentials!----------
+2021-09-19 20:09:857 INFO  LoginPageStepDefinition:28 - User Successfully launch the browser & navigated to application!------------
+2021-09-19 20:09:541 INFO  LoginPageStepDefinition:47 - ----------Login Unsuccessful and try again with correct credentials!----------
+2021-09-19 20:09:461 INFO  LoginPageStepDefinition:28 - User Successfully launch the browser & navigated to application!------------
+2021-09-19 20:09:167 INFO  LoginPageStepDefinition:47 - ----------Login Unsuccessful and try again with correct credentials!----------
+2021-09-19 20:09:66 INFO  LoginPageStepDefinition:28 - User Successfully launch the browser & navigated to application!------------
+2021-09-19 20:09:748 INFO  LoginPageStepDefinition:47 - ----------Login Unsuccessful and try again with correct credentials!----------
+2021-09-19 20:09:669 INFO  LoginPageStepDefinition:28 - User Successfully launch the browser & navigated to application!------------
+2021-09-19 20:09:358 INFO  LoginPageStepDefinition:56 - --------------User is in ForgotPassword Page!----------
+2021-09-19 20:09:735 INFO  DashBoardPageStepDefinition:34 - ---------------User launch the application after successful login!---------
+2021-09-19 20:09:325 INFO  DashBoardPageStepDefinition:51 - -------------Count matches with the application Menu item! ---------------
+2021-09-19 20:09:63 INFO  MarketPlacePageStepDefinition:27 - -------------User navigates to MarketPlace page!------------
+2021-09-19 20:09:248 INFO  MarketPlacePageStepDefinition:34 - -------------User landed in MarketPlace page!------------
+2021-09-19 20:09:70 INFO  AdminHeaderPageStepDefinition:21 - -------------User is in Admin Page---------------------
+2021-09-19 20:09:204 INFO  AdminHeaderPageStepDefinition:63 - -------------User Completed Admin section!---------------
+2021-09-19 20:09:590 INFO  PIMPage:19 - ----------------User going to test PIM Module!------------------
+2021-09-19 20:09:99 INFO  PIMPage:40 - ---------------User saved the Optional Configure!----------
+2021-09-19 20:09:225 INFO  PIMHeaderPageStepDefinition:42 - ---------------User Saved the Optional Configure!-------------
+2021-09-19 20:09:425 INFO  PIMPage:19 - ----------------User going to test PIM Module!------------------
+2021-09-19 20:09:367 INFO  PIMPage:19 - ----------------User going to test PIM Module!------------------
+2021-09-19 20:09:43 INFO  PIMPage:86 - ---------------User saved the Data Import Configuration!----------
+2021-09-19 20:09:170 INFO  PIMHeaderPageStepDefinition:86 - ---------------User Saved the Data Import!-------------
+2021-09-19 20:09:373 INFO  PIMPage:19 - ----------------User going to test PIM Module!------------------
+2021-09-19 20:09:499 INFO  PIMPage:105 - ---------------User saved the Reporting Methods!----------
+2021-09-19 20:09:652 INFO  PIMHeaderPageStepDefinition:109 - ---------------User Saved the Reporting Methods!-------------
+2021-09-19 20:09:995 INFO  PIMPage:19 - ----------------User going to test PIM Module!------------------
+2021-09-19 20:09:81 INFO  PIMPage:125 - ---------------User saved the Termination Reason!----------
+2021-09-19 20:09:81 INFO  PIMPage:126 - ---------------User saved all Configuration!----------
+2021-09-19 20:09:207 INFO  PIMHeaderPageStepDefinition:131 - ---------------User Saved the Termination Reason!-------------
