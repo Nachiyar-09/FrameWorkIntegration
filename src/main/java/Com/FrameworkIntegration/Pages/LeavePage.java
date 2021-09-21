@@ -1,11 +1,13 @@
 package Com.FrameworkIntegration.Pages;
 
 import Com.app.logger.Log;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
+
+import java.util.Set;
 
 public class LeavePage extends PageObject {
 
@@ -21,13 +23,36 @@ public class LeavePage extends PageObject {
     @Step("User verifies the Page URl contains URL")
     public void ClickOnApplyDropDown(){
      $("#menu_leave_applyLeave").click();
-
     }
     @Step("User should able to see message")
     public String MessageOnApply() {
-     return $("//div[@class='message warning']").getText();
+        return $("//div[@class='message warning']").getText();
 
     }
+  /*  @Step("User select Leave type")
+    public void selectLeaveType(String type){
+        $("#applyleave_txtLeaveType").selectByVisibleText(type);
+
+    }
+    @Step("From Date")
+    public void ApplyFromDate(){
+        $("#applyleave_txtFromDate").click();
+        $("//a[normalize-space()='23']").click();
+    }
+    @Step("To date")
+    public void ApplyToDate(){
+        $("#applyleave_txtToDate").click();
+        $("//a[normalize-space()='23']").click();
+    }
+    @Step("Text Comment")
+    public void Comments(String comment){
+        $("#applyleave_txtComment").type(comment);
+    }
+    @Step("User click on apply")
+    public void ClickApply() {
+     $("#applyBtn").click();
+
+    }*/
                //-------------------My Leave Tab-------------------------//
     @Step("User click on My Leave tab under leave")
     public void ClickMyLeave() {
@@ -41,14 +66,19 @@ public class LeavePage extends PageObject {
     public void ClickOnSearch(){
          $("#btnSearch").click();
     }
-    @Step("User select the action from the drop down")
+  /*  @Step("User select the action from the drop down")
     public void  SelectAction(String action){
-        $("#select_leave_action_62").selectByVisibleText(action);
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        WebElement element = $("#select_leave_action_67");
+        // scroll down the web element for viewing
+        js.executeScript("arguments[0].scrollIntoView();",element);
+        element.click();
+        ((WebElementFacade) element).selectByVisibleText(action);
 
     } @Step("User click on save button in the page")
     public void ClickOnSave(){
           $("#btnSave").click();
-    }
+    }*/
           //-------------------------Entitlements Tab--------------------------//
          //--------------------------Add Entitlements-------------------------//
 
@@ -82,9 +112,14 @@ public class LeavePage extends PageObject {
         $("#entitlements_entitlement").type(Entitle);
     }
     @Step("click on confirm button")
-    public void SwitchToAlertAndConfirm() {
-        Alert alert = driver.switchTo().alert();
-        alert.accept();
+    public void SwitchToAlertAndConfirm() throws InterruptedException {
+        Thread.sleep(1000);
+        $("#btnSave").click();
+        Set<String> window =getDriver().getWindowHandles();
+        Thread.sleep(4000);
+        $("#dialogConfirmBtn").click();
+        System.out.println("clicked Confirm button");
+
 
     }
                //-------------------Employee Entitlements page related features--------------//
@@ -147,7 +182,7 @@ public class LeavePage extends PageObject {
     }
     @Step("User click on save button")
     public void Clksave(){
-      $("#btnEdit").click();
+      $("//input[@class='addbutton']").click();
     }
               //--------------------Leave Types-------------------//
     @Step("User click on Leave Type from drop down")
@@ -156,15 +191,18 @@ public class LeavePage extends PageObject {
     }
     @Step("Leave Type")
     public void ClickOnTypeCheckBox(){
-        $("//a[normalize-space()='CAN - Matternity']").click();
+        $("#ohrmList_chkSelectRecord_10").click();
         }
     @Step("Click on delete button")
     public void ClickDelete(){
      $("#btnDelete").click();
+
     }
     @Step("switch to the confirmation box to confirm")
     public void SwitchToConfirm(){
-      driver.switchTo().alert().accept();
+        Set<String> window =getDriver().getWindowHandles();
+        System.out.println(window);
+        driver.findElement(By.id("dialogDeleteBtn")).click();
         }
         //---------------Work Week Option--------------------//
 
@@ -200,20 +238,35 @@ public class LeavePage extends PageObject {
      $("#assignleave_txtLeaveType").selectByVisibleText(type);
     }
     @Step("From Date")
-    public void FromDate(String Fromdate){
-    $("#assignleave_txtFromDate").type(Fromdate);
+    public void FromDate(){
+    $("#assignleave_txtFromDate").click();
+        $("//a[normalize-space()='23']").click();
     }
     @Step("To date")
-    public void ToDate(String ToDate){
-     $("#assignleave_txtToDate").type(ToDate);
+    public void ToDate(){
+     $("#assignleave_txtToDate").click();
+        $("//a[normalize-space()='30']").click();
     }
-    @Step("Save button")
+    @Step("Text Comment")
+    public void EnterComments(){
+        $("#assignleave_txtComment").type("New Line Comments!");
+         }
+    @Step("Assign button")
     public void AssignClick(){
-        $("#assignBtn").click();
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        WebElement element = $("#assignBtn");
+        // scroll down the web element for viewing
+        js.executeScript("arguments[0].scrollIntoView();",element);
+        element.click();
+        System.out.println("clicked assign");
     }
     @Step("confirmation box to confirm")
     public void Confirmation(){
-       driver.switchTo().alert().accept();
+        Set<String> window =getDriver().getWindowHandles();
+        System.out.println(window);
+        $("#confirmOkButton").click();
+        System.out.println("clicked Confirm button");
+
     }
 
 
