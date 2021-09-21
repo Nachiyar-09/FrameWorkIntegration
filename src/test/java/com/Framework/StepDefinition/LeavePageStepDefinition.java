@@ -31,11 +31,31 @@ public class LeavePageStepDefinition {
     public void userClickOnTheApplyTabUnderLeaveModule() {
         leavePage.ClickOnApplyDropDown();
     }
-
     @Then("User should able to see message as {string}")
     public void userShouldAbleToSeeMessageAsNoLeaveTypesWithLeaveBalance(String expected) {
-      Assert.assertEquals(leavePage.MessageOnApply(),expected);
+        Assert.assertEquals(leavePage.MessageOnApply(),expected);
     }
+  /*  @And("User select leave type {string}")
+    public void userSelectLeaveTypeCANPersonal(String type) {
+        leavePage.selectLeaveType(type);
+    }
+
+    @And("user select From and To Date")
+    public void userSelectFromAndToDate() {
+        leavePage.ApplyFromDate();
+        leavePage.ApplyToDate();
+    }
+
+    @And("User should enter comment as {string}")
+    public void userShouldEnterCommentAsFirstCommentInLeave(String comment) {
+        leavePage.Comments(comment);
+    }
+
+    @Then("User should able to click Apply button")
+    public void userShouldAbleToClickApplyButton() {
+        leavePage.ClickApply();
+    }
+*/
 
     //-------------------My Leave Tab-------------------------//
     @When("User click on My Leave tab under leave")
@@ -102,7 +122,7 @@ public class LeavePageStepDefinition {
     }
 
     @Then("user should switch to the frame available to click on confirm button")
-    public void userShouldSwitchToTheFrameAvailableToClickOnConfirmButton() {
+    public void userShouldSwitchToTheFrameAvailableToClickOnConfirmButton() throws InterruptedException {
         leavePage.SwitchToAlertAndConfirm();
     }
     //-------------------Employee Entitlements page related features--------------//
@@ -226,14 +246,14 @@ public class LeavePageStepDefinition {
         leavePage.TypeOfLeave(type);
     }
 
-    @And("User should enter date as {string} in From Date")
-    public void userShouldEnterDateAsInFromDate(String Fromdate) {
-        leavePage.FromDate(Fromdate);
+    @And("User should enter date in From Date")
+    public void userShouldEnterDateInFromDate() {
+        leavePage.FromDate();
     }
 
-    @And("User should enter date as {string} in To date")
-    public void userShouldEnterDateAsInToDate(String ToDate) {
-        leavePage.ToDate(ToDate);
+    @And("User should enter date in To date")
+    public void userShouldEnterDateInToDate() {
+        leavePage.ToDate();
     }
 
     @And("User hit on the Assign button")
@@ -245,5 +265,6 @@ public class LeavePageStepDefinition {
     public void userSwitchToConfirmationBoxToConfirm() {
         leavePage.Confirmation();
     }
+
 
 }
