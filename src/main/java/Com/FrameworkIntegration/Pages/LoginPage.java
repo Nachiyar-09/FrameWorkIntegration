@@ -31,6 +31,8 @@ public class LoginPage extends PageObject {
       String MenuText =$("#menu_dashboard_index").getText();
       return MenuText;
     }
+                      // Checking Invalid scenarios//
+    
     @Step("Error Message on unsuccessful login")
     public String errorMessage() {
         String actualErrorMessage = $(By.id("spanMessage")).getText();
@@ -46,6 +48,8 @@ public class LoginPage extends PageObject {
         Boolean resetPasswordButton = $(By.id("btnSearchValues")).isDisplayed();
         $("#btnCancel").click();
     }
+     
+    // Page Chaining - Object created for next page//
     public DashboardPage DoLogin(String username, String password){
         $("#txtUsername").type(username);
         $("#txtPassword").typeAndEnter(password);
