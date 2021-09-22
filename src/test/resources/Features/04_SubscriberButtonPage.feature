@@ -9,3 +9,14 @@ Feature: To verify the behaviour of subscribe options
     And   User should provide value in the email field as 'Laksmi@example.com'
     And   user should click on the subscribe button
     Then  User should see the successful subscription as 'Successfully Subscribed'
+    
+      @InvalidSubscriber
+  Scenario Outline: To verify subscription wit invalid data
+    When  User enter value of name as '<Name>' and email as '<Email>'
+    Then  User should able to see the validation message as '<validationMessage>'
+    Examples:
+      | Name   | Email                | validationMessage                  |
+      |        |                      | Required                           |
+      |        | admin123@example.com | Required                           |
+      | Admin  |                      | Required                           |
+      | Suriya | naveen               | Expected format: admin@example.com |
