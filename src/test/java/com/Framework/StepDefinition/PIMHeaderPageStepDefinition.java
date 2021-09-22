@@ -130,4 +130,13 @@ public class PIMHeaderPageStepDefinition {
        pimPage.ClickSave();
         log.info("---------------User Saved the Termination Reason!-------------");
     }
+     @When("User clicks on the Employee List link tab")
+    public void userClicksOnTheEmployeeListLinkTab() {
+        pimPage.clickOnPIMHeaderMenu();
+        pimPage.ClickOnEmployeeList();
+    }
+    @Then("Store the value of tables")
+    public void storeTheValueOfTables() {
+        pimPage.EmployeeTable();
+    }
 }
