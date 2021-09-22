@@ -14,7 +14,9 @@ public class DashboardPage extends PageObject {
 
     private WebDriver driver = getDriver();
     private By ListOfMenus = By.id("mainMenuFirstLevelUnorderedList");
-
+    
+      // Steps for Logout functions//
+    
     /* @Step("User is on the dashboard page")
      public boolean CheckForDashBoardPage() {
          boolean Content = $("#welcome").containsElements("Welcome");
@@ -31,7 +33,8 @@ public class DashboardPage extends PageObject {
         $("#welcome").click();
         $("//*[@id=\"welcome-menu\"]/ul/li[3]/a").click();
     }
-
+            // Verify all header tabs are available in dashboard//
+    
     @Step("User checks for all below header options availability")
     public List<String> CheckHeaderOption() {
 
@@ -43,7 +46,8 @@ public class DashboardPage extends PageObject {
         }
         return MenuHeader;
     }
-
+        // Count all headers available and match it with feature file//
+    
     @Step("User checks for all below header options availability")
     public int CountOfHeaderSection() {
         WebElement header = driver.findElement((ListOfMenus));
@@ -52,7 +56,7 @@ public class DashboardPage extends PageObject {
         System.out.println(noOfLinks);
         return noOfLinks;
     }
-
+           // Page chaining - next page object created //
     public MarketPlacePage CheckForDashBoardPage() {
         boolean Content = $("#welcome").containsElements("Welcome");
         return new MarketPlacePage();
