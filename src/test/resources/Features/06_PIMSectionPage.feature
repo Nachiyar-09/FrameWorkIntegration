@@ -38,3 +38,8 @@ Feature: To verify the PIM Header options functionality
     And  User click on ADD button available in that page
     And  User enter name in the field provided as 'Maternity'
     Then User click on the Save button
+    
+     @EmployeeList
+  Scenario: Employee list page under test
+    When User clicks on the Employee List link tab
+    Then Store the value of tables
