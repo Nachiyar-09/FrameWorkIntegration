@@ -2,14 +2,15 @@ package Com.FrameworkIntegration.Pages;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
-import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class SubscriberPage extends PageObject {
     private WebDriver driver = getDriver();
 
     @Step("user click on the subscribe button")
-    public void clickSubscribeButtonInHeader(){
+    public void clickSubscribeButtonInHeader()
+    {
         $("#Subscriber_link").click();
     }
     @Step("User provide the details in name field")
@@ -30,6 +31,21 @@ public class SubscriberPage extends PageObject {
         return $("//div[@class='message success']").getText();
 
     }
+
+    @Step
+    public void EnterInvalidNameInSubscription(String SName){
+        $("#subscriber_name").type(SName);
+    }
+    @Step
+    public void EnterInvalidEmailInSubscription(String SEmail){
+        $("#subscriber_email").type(SEmail);
+    }
+    @Step
+    public String ErrorMessageInSubscription(){
+        return $(By.xpath("//*[@class=\"validation-error\"]")).getText();
+
+    }
+
     public AdminPage CheckForDashBoardPage() {
         boolean Content = $("#welcome").containsElements("Welcome");
         return new AdminPage();
