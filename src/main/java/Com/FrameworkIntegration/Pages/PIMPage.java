@@ -125,37 +125,75 @@ public class PIMPage extends PageObject {
         log.info("---------------User saved the Termination Reason!----------");
         log.info("---------------User saved all Configuration!----------");
     }
-    //---------------------------Employee List tab-----------------//
-     @Step("click PIM Module")
-     public void ClickPIM(){
-        $("#"menu_pim_viewPimModule").click()
-          }
-      @Step("click Employee List")
-      public void ClickEmployeeList(){
-        $("#"menu_pim_viewEmployeeList").click()
-          }     
-		 @Step("Employee List")
-        public void EmployeeList(){
-          //Count entire columns in the table
-		  List<WebElement> ColumnCount = driver.findElements(By.tagName("th"));
-		  System.out.println("Column count is " +ColumnCount.size());
-		  
-		  //count entire rows in the table
-		  List<WebElement> rowCount = driver.findElements(By.tagName("tr"));
-		  System.out.println("Row count is " +rowCount.size());
-		  
-		  //Scrolling down to the page
-		  Actions a = new Actions(driver);
-		  a.sendKeys(Keys.PAGE_DOWN).build().perform();
-		  
-		  //Get All Employees Name present in the table
-		  List<WebElement> FirstNameColumnValue = driver.findElements(By.xpath("//*[@id=\"resultTable\"]/tbody/tr/td[3]"));   // or we can simply use("//td[3]") to retreive all column values
-		  
-		  AllEmployeeName = new ArrayList<String>();
-		  for(WebElement ele : FirstNameColumnValue ){
-			  String EmployeeName = ele.getText();
-			  AllEmployeeName.add(EmployeeName);
-		  }
-		 System.out.println("Emp Names" +AllEmployeeName);
-		 
+                     //-------------------- Employee List tab---------------------------//
+    @Step()
+    public void ClickOnEmployeeList(){
+        $("#menu_pim_viewEmployeeList").click();
+    }
+
+    @Step("Working with Emp tables")
+     public String EmployeeTable() {
+       /* //Count entire columns in the table
+        List<WebElement> ColumnCount = driver.findElements(By.tagName("th"));
+        System.out.println("Column count is " + ColumnCount.size());
+
+        //count entire rows in the table
+        List<WebElement> rowCount = driver.findElements(By.tagName("tr"));
+        System.out.println("Row count is " + rowCount.size());*/
+
+        //Scrolling down to the page
+        Actions a = new Actions(driver);
+        a.sendKeys(Keys.PAGE_DOWN).build().perform();
+
+        //Get All Employees Name present in the table
+        List<WebElement> FirstNameColumnValue = driver.findElements(By.xpath("//*[@id=\"resultTable\"]/tbody/tr/td[3]"));
+
+        AllEmployeeName = new ArrayList<String>();
+        for (WebElement ele : FirstNameColumnValue) {
+            String EmployeeName = ele.getText();
+            AllEmployeeName.add(EmployeeName);
+        }
+        return AllEmployeeName.toString();
+    }
+    @Step
+    public LeavePage CheckForDashBoardPage() {
+        boolean Content = $("#welcome").containsElements("Welcome");
+        return new LeavePage();
+    }
+}
+                  //-------------------- Employee List tab---------------------------//
+    @Step()
+    public void ClickOnEmployeeList(){
+        $("#menu_pim_viewEmployeeList").click();
+    }
+
+    @Step("Working with Emp tables")
+     public String EmployeeTable() {
+       /* //Count entire columns in the table
+        List<WebElement> ColumnCount = driver.findElements(By.tagName("th"));
+        System.out.println("Column count is " + ColumnCount.size());
+
+        //count entire rows in the table
+        List<WebElement> rowCount = driver.findElements(By.tagName("tr"));
+        System.out.println("Row count is " + rowCount.size());*/
+
+        //Scrolling down to the page
+        Actions a = new Actions(driver);
+        a.sendKeys(Keys.PAGE_DOWN).build().perform();
+
+        //Get All Employees Name present in the table
+        List<WebElement> FirstNameColumnValue = driver.findElements(By.xpath("//*[@id=\"resultTable\"]/tbody/tr/td[3]"));
+
+        AllEmployeeName = new ArrayList<String>();
+        for (WebElement ele : FirstNameColumnValue) {
+            String EmployeeName = ele.getText();
+            AllEmployeeName.add(EmployeeName);
+        }
+        return AllEmployeeName.toString();
+    }
+    @Step
+    public LeavePage CheckForDashBoardPage() {
+        boolean Content = $("#welcome").containsElements("Welcome");
+        return new LeavePage();
+    }
 }
