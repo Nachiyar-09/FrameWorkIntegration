@@ -14,37 +14,32 @@ public class SubscriberPage extends PageObject {
         $("#Subscriber_link").click();
     }
     @Step("User provide the details in name field")
-    public void EnterNameInSubscription(String name){
+    public void EnterNameInSubscription(String name) {
         $("#subscriber_name").type(name);
 
     }
+
     @Step("user provide value in the email field")
-    public void EnterEmailDetails(String email){
+    public String EnterEmailDetails(String email)
+    {
         $("#subscriber_email").type(email);
+        if(email.isEmpty()){
+        return  $(By.xpath("//span[@for='subscriber_email']")).getText();
+    }else{
+        return $(By.xpath("//span[text()='Expected format: admin@example.com']")).getText();
+    }
+
     }
     @Step("Hit the subscribe button")
-    public void SubscribeButtonSubmit(){
+    public void SubscribeButtonSubmit()
+    {
         $("#btnSubscribe").click();
     }
     @Step("Verify successful Subscription")
     public String verifySubscription(){
         return $("//div[@class='message success']").getText();
-
     }
 
-    @Step
-    public void EnterInvalidNameInSubscription(String SName){
-        $("#subscriber_name").type(SName);
-    }
-    @Step
-    public void EnterInvalidEmailInSubscription(String SEmail){
-        $("#subscriber_email").type(SEmail);
-    }
-    @Step
-    public String ErrorMessageInSubscription(){
-        return $(By.xpath("//*[@class=\"validation-error\"]")).getText();
-
-    }
 
     public AdminPage CheckForDashBoardPage() {
         boolean Content = $("#welcome").containsElements("Welcome");
