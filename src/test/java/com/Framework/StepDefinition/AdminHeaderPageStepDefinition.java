@@ -45,13 +45,9 @@ public class AdminHeaderPageStepDefinition {
         adminPage.selectUserRole(role);
     }
 
-    @And("User should provide value in the Employee name as {string}")
-        public void user_should_provide_value_in_the_employee_name_as(String EmpName) {
-          adminPage.EnterEmployeeName(EmpName);
-        }
-    @And("User should throw error message {string} if employee name is not present.")
-    public void userShouldThrowErrorMessageErrorMessageIfEmployeeNameIsNotPresent(String EmpName) {
-        adminPage.VerifyEmployeeFromEmpList(EmpName);
+    @And("User should select name of the Employee as {string} from auto suggestion and check for {string}")
+    public void userShouldSelectNameOfTheEmployeeAsEmpNameFromAutoSuggestionAndCheckForErrorMessage(String Name, String ErrorMessage ) {
+           adminPage.EnterEmployeeNameAndVerify(Name,ErrorMessage);
     }
 
     @And("User should provide the username as {string}")
