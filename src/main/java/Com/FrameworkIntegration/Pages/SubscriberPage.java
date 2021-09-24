@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 
 public class SubscriberPage extends PageObject {
     private WebDriver driver = getDriver();
+    String name;
+    String email;
 
     @Step("user click on the subscribe button")
     public void clickSubscribeButtonInHeader()
@@ -14,23 +16,33 @@ public class SubscriberPage extends PageObject {
         $("#Subscriber_link").click();
     }
     @Step("User provide the details in name field")
-    public void EnterNameInSubscription(String name) {
-        $("#subscriber_name").type(name);
+    public void  EnterNameInSubscription(String name) {
+        $("#subscriber_name").type(name);}
 
-    }
+    @Step("verify name with validation")
+    public String verifyName(){
+          String  ErrorMessage = $("//span[@for='subscriber_name']").getText();
+          System.out.println("Error message captured" + ErrorMessage);
+            return ErrorMessage;
+        }
+
 
     @Step("user provide value in the email field")
-    public String EnterEmailDetails(String email)
-    {
+    public void EnterEmailDetails(String email) {
         $("#subscriber_email").type(email);
-        if(email.isEmpty()){
-        return  $(By.xpath("//span[@for='subscriber_email']")).getText();
-    }else{
-        return $(By.xpath("//span[text()='Expected format: admin@example.com']")).getText();
     }
+    @Step("verify name with validation")
+    public String  verifyEmail(){
+        String  ErrorMessage = $("//span[@for='subscriber_email']").getText();
+        System.out.println("Error message captured" + ErrorMessage);
+        return ErrorMessage;
+
+     //   } else {
+         //  return driver.findElement(By.xpath("//span[text()='Expected format: admin@example.com']")).getText();
 
     }
-    @Step("Hit the subscribe button")
+
+        @Step("Hit the subscribe button")
     public void SubscribeButtonSubmit()
     {
         $("#btnSubscribe").click();
@@ -45,4 +57,6 @@ public class SubscriberPage extends PageObject {
         boolean Content = $("#welcome").containsElements("Welcome");
         return new AdminPage();
     }
+
+
 }
